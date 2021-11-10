@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://main/main.gd" type="Script" id=1]
+[ext_resource path="res://device/device.tscn" type="PackedScene" id=2]
+[ext_resource path="res://connection/connection.tscn" type="PackedScene" id=3]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+connection_scene = ExtResource( 3 )
+device_scene = ExtResource( 2 )
+
+[node name="Devices" type="Node" parent="."]
+
+[node name="Device1" parent="Devices" instance=ExtResource( 2 )]
+position = Vector2( 340.738, 233.859 )
+
+[node name="Device2" parent="Devices" instance=ExtResource( 2 )]
+position = Vector2( 613.93, 333.947 )
+
+[node name="Device3" parent="Devices" instance=ExtResource( 2 )]
+position = Vector2( 337.457, 523.459 )
+
+[node name="Connections" type="Node" parent="."]
+
+[connection signal="connect" from="Devices/Device1" to="." method="_on_device_connect"]
+[connection signal="connect" from="Devices/Device2" to="." method="_on_device_connect"]
+[connection signal="connect" from="Devices/Device3" to="." method="_on_device_connect"]
